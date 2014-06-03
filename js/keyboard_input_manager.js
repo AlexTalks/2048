@@ -70,6 +70,8 @@ KeyboardInputManager.prototype.listen = function () {
 
   // Respond to button presses
   this.bindButtonPress(".retry-button", this.restart);
+  this.bindButtonPress(".reload-button", this.load);
+  this.bindButtonPress(".save-button", this.save);
   this.bindButtonPress(".restart-button", this.restart);
   this.bindButtonPress(".keep-playing-button", this.keepPlaying);
 
@@ -126,6 +128,16 @@ KeyboardInputManager.prototype.listen = function () {
     }
   });
 };
+
+KeyboardInputManager.prototype.save = function(event) {
+  event.preventDefault();
+  this.emit("save");
+}
+
+KeyboardInputManager.prototype.load = function(event) {
+  event.preventDefault();
+  this.emit("load");
+}
 
 KeyboardInputManager.prototype.restart = function (event) {
   event.preventDefault();
